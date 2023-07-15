@@ -1,12 +1,13 @@
-// const { FitAddon } = require('xterm-addon-fit');
+
 const socket = new WebSocket("ws://localhost:6060");
 
 var term = new window.Terminal({
     cursorBlink: true
-});
+})
 term.open(document.getElementById('terminal'));
 
 function init() {
+    term.resize(190,70);
     if (term._initialized) {
         return;
     }
@@ -70,5 +71,6 @@ function runCommand(term, command) {
         return;
     }
 }
+
 
 init();
